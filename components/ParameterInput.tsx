@@ -10,6 +10,7 @@ interface ParameterInputProps {
   onChange: (value: string | number) => void;
   isDifferent: boolean;
   disabled: boolean;
+  panel?: "A" | "B";
 }
 
 export default React.memo(function ParameterInput({
@@ -18,6 +19,7 @@ export default React.memo(function ParameterInput({
   onChange,
   isDifferent,
   disabled,
+  panel,
 }: ParameterInputProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -93,7 +95,9 @@ export default React.memo(function ParameterInput({
         >
           <InfoIcon className="w-4 h-4 text-gray-400 cursor-help" />
           {showTooltip && (
-            <div className="tooltip show absolute bottom-full right-0 mb-1 w-64 z-50">
+            <div className={`tooltip show absolute bottom-full mb-1 w-64 z-50 ${
+              panel === "A" ? "left-0" : "right-0"
+            }`}>
               {config.tooltip}
             </div>
           )}

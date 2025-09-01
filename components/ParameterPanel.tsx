@@ -84,6 +84,7 @@ export default React.memo(function ParameterPanel({
                 onChange={(value) => onParameterChange(config.key, value)}
                 isDifferent={differences[config.key]}
                 disabled={loading}
+                panel={panel}
               />
             );
           })}

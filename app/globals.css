@@ -69,7 +69,7 @@
 /* Smooth transitions for collapsible panels */
 .collapsible-content {
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .collapsible-content.collapsed {

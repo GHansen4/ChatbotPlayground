@@ -1,6 +1,6 @@
 {
   "name": "ai-model-comparison",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Professional AI model comparison tool with side-by-side analysis",
   "keywords": ["ai", "comparison", "openai", "anthropic", "gpt", "claude", "nextjs"],
   "author": "Your Name",

@@ -93,7 +93,7 @@ export default React.memo(function ParameterInput({
         >
           <InfoIcon className="w-4 h-4 text-gray-400 cursor-help" />
           {showTooltip && (
-            <div className="tooltip show absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-64">
+            <div className="tooltip show absolute bottom-full right-0 mb-1 w-64 z-50">
               {config.tooltip}
             </div>
           )}

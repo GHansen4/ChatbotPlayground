@@ -5,8 +5,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   
-  // Fix workspace root detection for Vercel
+  // Fix workspace root detection for Vercel and Turbopack
   outputFileTracingRoot: __dirname,
+  
+
   
   // External packages configuration
   serverExternalPackages: [],

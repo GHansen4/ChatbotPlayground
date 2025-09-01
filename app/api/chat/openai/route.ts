@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     const startTime = Date.now();
 
     const completion = await openai.chat.completions.create({
-      model: parameters.model || "gpt-4",
+      model: parameters.model || "gpt-4o",
       messages: [{ role: "user", content: message }],
       temperature: parameters.temperature || 0.7,
       max_tokens: parameters.maxTokens || 1000,

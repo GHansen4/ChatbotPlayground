@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     const startTime = Date.now();
 
     const completion = await anthropic.messages.create({
-      model: parameters.model || "claude-3-sonnet-20240229",
+      model: parameters.model || "claude-sonnet-4-20250514",
       max_tokens: parameters.maxTokens || 1000,
       temperature: parameters.temperature || 0.7,
       top_p: parameters.topP || 1.0,
@@ -43,14 +43,15 @@ export async function POST(request: NextRequest) {
     const endTime = Date.now();
     const responseTime = endTime - startTime;
 
-    // Calculate estimated cost (rough estimates)
+    // Calculate estimated cost using centralized cost data
     const costs: Record<string, { input: number; output: number }> = {
+      "claude-sonnet-4-20250514": { input: 0.003, output: 0.015 },
+      "claude-3-5-sonnet-20241022": { input: 0.003, output: 0.015 },
+      "claude-3-5-haiku-20241022": { input: 0.00025, output: 0.00125 },
       "claude-3-opus-20240229": { input: 0.015, output: 0.075 },
-      "claude-3-sonnet-20240229": { input: 0.003, output: 0.015 },
-      "claude-3-haiku-20240307": { input: 0.00025, output: 0.00125 },
     };
 
-    const modelCost = costs[parameters.model] || costs["claude-3-sonnet-20240229"];
+    const modelCost = costs[parameters.model] || costs["claude-sonnet-4-20250514"];
     const inputTokens = completion.usage?.input_tokens || 0;
     const outputTokens = completion.usage?.output_tokens || 0;
     const estimatedCost = 

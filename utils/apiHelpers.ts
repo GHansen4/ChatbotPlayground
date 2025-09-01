@@ -10,11 +10,11 @@ export function calculateCost(
   // Simplified approach to avoid TypeScript complexity
   if (provider === "openai") {
     const openaiCosts = TOKEN_COSTS.openai;
-    const modelCost = openaiCosts[model as keyof typeof openaiCosts] || openaiCosts["gpt-4"];
+    const modelCost = openaiCosts[model as keyof typeof openaiCosts] || openaiCosts["gpt-4o"];
     return (inputTokens / 1000) * modelCost.input + (outputTokens / 1000) * modelCost.output;
   } else {
     const anthropicCosts = TOKEN_COSTS.anthropic;
-    const modelCost = anthropicCosts[model as keyof typeof anthropicCosts] || anthropicCosts["claude-3-sonnet-20240229"];
+    const modelCost = anthropicCosts[model as keyof typeof anthropicCosts] || anthropicCosts["claude-sonnet-4-20250514"];
     return (inputTokens / 1000) * modelCost.input + (outputTokens / 1000) * modelCost.output;
   }
 }

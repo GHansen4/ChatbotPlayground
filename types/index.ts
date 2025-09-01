@@ -51,15 +51,17 @@ export interface ParameterConfig {
 }
 
 export const OPENAI_MODELS = [
-  { value: "gpt-4", label: "GPT-4" },
+  { value: "gpt-4o", label: "GPT-4o (Latest)" },
+  { value: "gpt-4o-mini", label: "GPT-4o Mini" },
   { value: "gpt-4-turbo", label: "GPT-4 Turbo" },
   { value: "gpt-3.5-turbo", label: "GPT-3.5 Turbo" },
 ];
 
 export const ANTHROPIC_MODELS = [
+  { value: "claude-sonnet-4-20250514", label: "Claude Sonnet 4 (Latest)" },
+  { value: "claude-3-5-sonnet-20241022", label: "Claude 3.5 Sonnet" },
+  { value: "claude-3-5-haiku-20241022", label: "Claude 3.5 Haiku" },
   { value: "claude-3-opus-20240229", label: "Claude 3 Opus" },
-  { value: "claude-3-sonnet-20240229", label: "Claude 3 Sonnet" },
-  { value: "claude-3-haiku-20240307", label: "Claude 3 Haiku" },
 ];
 
 export const PARAMETER_CONFIGS: ParameterConfig[] = [

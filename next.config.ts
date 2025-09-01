@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   
+
+  
   // Optimize images
   images: {
     formats: ["image/webp", "image/avif"],

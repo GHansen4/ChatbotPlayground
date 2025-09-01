@@ -1,12 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import TokenVisualization from "./TokenVisualization";
 
 interface PromptInputProps {
   value: string;
   onChange: (value: string) => void;
   onGenerate: () => void;
   loading: boolean;
+  currentModels?: {
+    panelA: string;
+    panelB: string;
+  };
 }
 
 export default function PromptInput({
@@ -14,7 +19,9 @@ export default function PromptInput({
   onChange,
   onGenerate,
   loading,
+  currentModels,
 }: PromptInputProps) {
+  const [showTokens, setShowTokens] = useState(false);
   return (
     <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
       <label htmlFor="prompt" className="block text-sm font-medium text-gray-700 mb-2">
@@ -38,9 +45,27 @@ export default function PromptInput({
           disabled={loading}
           aria-describedby="prompt-help"
         />
-        <p id="prompt-help" className="text-xs text-gray-500 mt-1">
-          Tip: Press Ctrl/Cmd + Enter to quickly generate responses
-        </p>
+        <div className="flex items-center justify-between">
+          <p id="prompt-help" className="text-xs text-gray-500">
+            Tip: Press Ctrl/Cmd + Enter to quickly generate responses
+          </p>
+          <button
+            onClick={() => setShowTokens(!showTokens)}
+            className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded transition-colors"
+            disabled={loading}
+          >
+            {showTokens ? "Hide Tokens" : "Show Tokens"}
+          </button>
+        </div>
+        
+        {/* Token Visualization */}
+        {showTokens && (
+          <TokenVisualization 
+            text={value} 
+            model={currentModels?.panelA} // Show tokens for Panel A model by default
+          />
+        )}
+        
         <div className="flex justify-center">
           <button
             onClick={onGenerate}

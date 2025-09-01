@@ -142,6 +142,10 @@ export default function ComparisonTool() {
         onChange={handlePromptChange}
         onGenerate={generateBoth}
         loading={state.panelA.loading || state.panelB.loading}
+        currentModels={{
+          panelA: state.panelA.parameters.model,
+          panelB: state.panelB.parameters.model,
+        }}
       />
 
       {/* Parameter Panels */}

@@ -84,7 +84,34 @@ export default React.memo(function ResponseArea({
 
       {response && (
         <div className="metadata-card">
-          <h4 className="font-medium text-gray-700 mb-2">Response Metadata</h4>
+          <h4 className="font-medium text-gray-700 mb-3">Response Metadata</h4>
+          
+          {/* Token Information - Highlighted */}
+          <div className="bg-blue-50 border border-blue-200 rounded-md p-3 mb-3">
+            <div className="text-sm font-medium text-blue-900 mb-2">Token Usage</div>
+            <div className="grid grid-cols-3 gap-3 text-sm">
+              <div className="text-center">
+                <div className="text-lg font-bold text-blue-700">
+                  {formatTokenCount(response.metadata.inputTokens)}
+                </div>
+                <div className="text-xs text-blue-600">Input</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-blue-700">
+                  {formatTokenCount(response.metadata.outputTokens)}
+                </div>
+                <div className="text-xs text-blue-600">Output</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-blue-700">
+                  {formatTokenCount(response.metadata.tokenCount)}
+                </div>
+                <div className="text-xs text-blue-600">Total</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Other Metadata */}
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <span className="text-gray-500">Response Time:</span>
@@ -93,30 +120,12 @@ export default React.memo(function ResponseArea({
               </span>
             </div>
             <div>
-              <span className="text-gray-500">Total Tokens:</span>
-              <span className="ml-2 font-medium">
-                {formatTokenCount(response.metadata.tokenCount)}
-              </span>
-            </div>
-            <div>
-              <span className="text-gray-500">Input Tokens:</span>
-              <span className="ml-2 font-medium">
-                {formatTokenCount(response.metadata.inputTokens)}
-              </span>
-            </div>
-            <div>
-              <span className="text-gray-500">Output Tokens:</span>
-              <span className="ml-2 font-medium">
-                {formatTokenCount(response.metadata.outputTokens)}
-              </span>
-            </div>
-            <div>
               <span className="text-gray-500">Estimated Cost:</span>
-              <span className="ml-2 font-medium">
+              <span className="ml-2 font-medium text-green-600">
                 {formatCost(response.metadata.estimatedCost)}
               </span>
             </div>
-            <div>
+            <div className="col-span-2">
               <span className="text-gray-500">Model:</span>
               <span className="ml-2 font-medium">
                 {response.metadata.model}

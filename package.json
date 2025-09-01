@@ -1,27 +1,48 @@
 {
   "name": "ai-model-comparison",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Professional AI model comparison tool with side-by-side analysis",
+  "keywords": ["ai", "comparison", "openai", "anthropic", "gpt", "claude", "nextjs"],
+  "author": "Your Name",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true npm run build"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.60.0",
+    "next": "15.5.2",
+    "openai": "^5.16.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
-  }
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-model-comparison.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/ai-model-comparison/issues"
+  },
+  "homepage": "https://github.com/yourusername/ai-model-comparison#readme"
 }

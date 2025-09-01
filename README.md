@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Model Comparison Tool
+
+A professional tool for comparing AI model responses side-by-side with customizable parameters. Compare OpenAI and Anthropic models with real-time parameter difference highlighting, detailed response metadata, and a polished user interface.
+
+## Features
+
+- **Side-by-Side Comparison**: Compare responses from OpenAI (GPT-4, GPT-3.5) and Anthropic (Claude 3) models
+- **Dynamic Parameters**: Adjust temperature, max tokens, top-p, frequency penalty, and presence penalty
+- **Real-Time Diff Highlighting**: Visual indicators show parameter differences between panels
+- **Detailed Metadata**: Response time, token count, estimated cost, and model information
+- **Professional UI**: Smooth animations, tooltips, collapsible panels, and responsive design
+- **Educational Tooltips**: Learn what each parameter does with comprehensive help text
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ and npm
+- OpenAI API key (optional)
+- Anthropic API key (optional)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd ai-model-comparison
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `.env.local` and add your API keys:
+```
+OPENAI_API_KEY=your-openai-api-key-here
+ANTHROPIC_API_KEY=your-anthropic-api-key-here
+```
 
-## Learn More
+4. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Enter a Prompt**: Type your question or prompt in the text area
+2. **Configure Parameters**: Adjust model parameters for each panel (A and B)
+3. **Select Providers**: Choose between OpenAI and Anthropic for each panel
+4. **Generate Responses**: Click "Generate Responses" to compare outputs side-by-side
+5. **Analyze Results**: Review responses and metadata including costs and performance
 
-## Deploy on Vercel
+## Parameter Explanations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Temperature (0-2)**: Controls randomness. Higher = more creative, Lower = more focused
+- **Max Tokens (1-4000)**: Maximum length of the response
+- **Top P (0.1-1.0)**: Nucleus sampling. Lower = more focused on probable words
+- **Frequency Penalty (-2 to 2)**: Reduces repetition based on word frequency
+- **Presence Penalty (-2 to 2)**: Reduces repetition of any previously used words
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Add environment variables in Vercel dashboard
+4. Deploy
+
+### Other Platforms
+
+The app can be deployed on any platform that supports Next.js:
+
+```bash
+npm run build
+npm start
+```
+
+## Technology Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **AI APIs**: OpenAI SDK, Anthropic SDK
+- **State Management**: React hooks with debouncing
+
+## API Costs
+
+The tool provides estimated costs based on current API pricing:
+
+- **OpenAI**: $0.03-0.06 per 1K tokens (varies by model)
+- **Anthropic**: $0.00025-0.075 per 1K tokens (varies by model)
+
+Costs are estimates only. Check provider documentation for current pricing.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.

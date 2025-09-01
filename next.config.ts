@@ -5,7 +5,11 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   
-
+  // Fix workspace root detection for Vercel
+  outputFileTracingRoot: __dirname,
+  
+  // External packages configuration
+  serverExternalPackages: [],
   
   // Optimize images
   images: {
